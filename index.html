@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de programacion</title>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="center" id="ejericio1">
+        <div class="row">
+            <span class="text-center">Ejercicio N° 1</span>
+        </div>
+        <div class="row">
+            <button class="btn-primary" onclick="alert('Hola Mundo');">Click para ver el mensaje</button>
+        </div>
+    </div>
+    <hr>
+    <div class="center" id="ejericio2">
+        <span class="text-center">Ejercicio N° 2</span>
+        <div class="row">
+            <div class="col-4">
+                <span>Ingrese primer numero</span>
+                <input class = "form-control" type="number" id="numero_1_ej2" msg = "Numero 1" name="numero_1_ej2">
+            </div>
+            <div class="col-4">
+                <span>Ingrese segundo numero</span>
+                <input class = "form-control" type="number" id="numero_2_ej2" msg = "Numero 2" name="numero_2_ej2">        
+            </div>
+            <div class="col-4 mt-5">
+                <button class="btn-primary btn-sm" onclick="Sumar();">Sumar</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="center" id="ejericio3">
+        <span class="text-center">Ejercicio N° 3</span>
+        <div class="row">
+            <button class="btn-primary btn-sm" onclick="console.log('Hola Mundo');">Click para ver mensaje por consola</button>
+        </div>
+    </div>
+    <hr>
+    <div class="center" id="ejericio4">
+        <span class="text-center">Ejercicio N° 4</span>
+        <div class="row">
+            <p class="text-center" onmouseover="ColorearP('red',true);" onmouseout="ColorearP('red',false);" style="">Hola Mundo</p>
+
+        </div>
+    </div>
+    <hr>
+    <div class="center" id="ejericio5">
+        <span class="text-center">Ejercicio N° 5</span>
+        <div class="row">
+            <div class="col-5">
+                <span>Ingrese primer numero</span>
+                <input class = "form-control" type="number" id="numero_1_ej5" msg = "Numero 1"name="numero_1_ej5">        
+            </div>
+            <div class="col-5">
+                <span>Ingrese segundo numero</span>
+                <input class = "form-control" type="number" id="numero_2_ej5" msg = "Numero 2"name="numero_2_ej5">
+            </div>
+            <div class="col-2">
+                <button class="btn-primary btn-sm mt-4" onclick="Sumar(false);">Sumar</button>
+                
+            </div>
+            <div class="col-12">
+                <span class="text-center d-none" id="resultado_suma">Resultado : </span>
+            </div>
+        </div>
+        
+    </div>
+    <hr>
+    <div class="center" id="ejericio6">
+        <span class="text-center">Ejercicio N° 6</span>
+        <div class="row"></div>
+        <span id="numeros_random"></span>
+        <button class="btn-primary" onclick="RandomNumeros();">Cambiar numeros</button>
+    </div>
+    <hr>
+    <div class="center" id="ejericio7">
+        <span class="text-center">Ejercicio N° 7</span>
+        <div class="row"></div>
+        <span>Presione el color para colorear el texto</span>
+        <span id="texto_colorear"> Colores </span>
+        <button  class="btn-danger" id = "red" onclick="CambiarColor(this);" st>Rojo</button>
+        <button  class="btn-primary" id = "blue" onclick="CambiarColor(this);">Azul</button>
+        <button  class="btn-warning" id = "yellow" onclick="CambiarColor(this);">Amarillo</button>
+        <button  class="btn-dark" id = "black" onclick="CambiarColor(this);">Original</button>
+
+    </div>
+    <hr>
+    <div class="center" id="ejericio8">
+        <span class="text-center">Ejercicio N° 8</span>
+        <div class="row">
+            <div class="col-5">
+                <span>Ingrese nombre</span>
+                <input class = "form-control" type="text" id="nombre" msg = " Nombre "name="nombre">
+            </div>
+            <div class="col-5">
+                <span>Ingrese apellido</span>
+                <input class = "form-control" type="text" id="apellido" msg = " Apellido "name="Apellido">
+            </div>
+            <div class="col-2">
+                <button class="btn-primary mt-3" onclick="MostrarMensajeDatos();">Ingresar</button>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="center" id="ejericio9">
+        <span class="text-center">Ejercicio N° 9</span>
+        <div class="row">
+            <div class="col-7">
+                <span>Ingrese año de nacimiento</span>
+                <input class = "form-control" type="date" id="fecha_nacimiento" value="2000-06-21" msg = " Fecha vacia "name="fecha_nacimiento">
+            </div>
+            <div class="col-5">
+                <button class="btn-primary mt-5" onclick="CalcularEdad();">Calcular Edad</button>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="center" id="ejericio10">
+        <span class="text-center">Ejercicio N° 10</span>
+        <div class="row">
+            <div class="col-12">
+                <span> Seleccione el radio del cual quiere ver su valor</span>
+            </div>
+            <div class="col-3">
+                    <input class = "form-check-input" type="radio" title="Presione para ver su valor" value="Valor 1" onclick="MostrarValor(this);" name="radio" id="radio">
+            </div>
+            <div class="col-3">
+                <input class = "form-check-input" type="radio" title="Presione para ver su valor" value="Valor 2" onclick="MostrarValor(this);" name="radio" id="radio">
+            </div>
+            <div class="col-3">
+                <input class = "form-check-input" type="radio" title="Presione para ver su valor" value="Valor 3" onclick="MostrarValor(this);" name="radio" id="radio">
+            </div>
+            <div class="col-3">
+                <span id="text-radio">Valor selecionado : </span>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    
+</body>
+</html>
+<script>
+
+    
+</script>
+<style>
+    div{
+        padding: 5px;
+    }
+    .center{
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
