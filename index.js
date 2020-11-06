@@ -90,7 +90,6 @@
                         element.removeAttribute("style");
                     }
                 }
-
             }
         }
     }
@@ -116,7 +115,6 @@
         }
     }
     //Ejercicio 8
-
     function MostrarMensajeDatos(){
         Nombre = document.getElementById("nombre");
         Apellido = document.getElementById("apellido");
@@ -185,4 +183,91 @@
             }
         }
         return result;
+    }
+
+    function Habilitar(self){
+        if(self && self.id){
+            console.log(self.id);
+            Deshabilitar();
+            var div_padre = document.getElementById("Ejercicios"+self.id);
+            console.log(div_padre);
+            if(self.id == "ajax"){
+                SelectPais(document.getElementById("pais"));
+            }
+            if(div_padre){
+                div_padre.classList.remove("d-none");
+            }
+        }
+    }
+    Deshabilitar();
+    function Deshabilitar(){
+        divJS = document.getElementById('Ejerciciosjs');
+        divAjax = document.getElementById('Ejerciciosajax');
+        if(divJS){
+            if(!divJS.classList.contains("d-none")){
+                divJS.classList.add("d-none");
+            }
+        }
+
+        if(divAjax){
+            if(!divAjax.classList.contains("d-none")){
+                divAjax.classList.add("d-none");
+            }
+        }
+    }
+
+    function SelectPais(self){
+        if(self){
+            if(self.value){
+                TirarAjax("GET","buscarprovincia",self.value);
+            }
+        }
+    }
+
+    function LimpiarOption(){
+        var options = document.querySelectorAll("#provincia");
+        if(options){
+            for (let index = 0; index < options.length; index++) {
+                const element = options[index];
+                if(element){
+
+                    element.remove();
+                }
+                
+            }
+        }
+
+    }
+    function LlenarOption(provincias){
+        
+        if(provincias){
+            provincias = JSON.parse(provincias);
+            select_provincias = document.getElementById("provincias");
+            LimpiarOption();
+            for (const key in provincias) {
+                console.log(provincias[key]);
+                option = document.createElement("option");
+                option.innerText = provincias[key]; 
+                option.id = "provincia"; 
+                option.value = provincias[key];
+                select_provincias.appendChild(option); 
+            }
+        }
+
+    }
+
+    function TirarAjax(metodo = "GET",archivo,params){
+        console.log(params);
+        var xhttp = new XMLHttpRequest();
+        var result = false;
+        xhttp.open(metodo, archivo+".php?p="+params, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // console.log(this.responseText);
+                LlenarOption(this.responseText);
+                // result = this.responseText;
+            }
+        };
     }
